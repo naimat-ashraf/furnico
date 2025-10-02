@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniture Store - Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* HERO */
+    .shop-hero {
+      background: url('https://i.pinimg.com/736x/cc/0a/ef/cc0aefeb6c30e2bcc6e44d8f94d83861.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .shop-hero h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .shop-hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .categories h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .category-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .category-card h3 {
+      margin: 1rem 0;
+    }
+
+    /* BEST SELLERS */
+    .best-sellers {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .best-sellers h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .product-info h4 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .price {
+      font-weight: bold;
+    }
+
+    .add-cart {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .add-cart:hover {
+      background: #444;
+    }
+
+    /* OFFER BANNER */
+    .offer-banner {
+      background: #000;
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .offer-banner h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .offer-banner p {
+      margin: 1rem 0;
+    }
+
+    .offer-banner button {
+      background: crimson;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .offer-banner button:hover {
+      background: #ff4a4a;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 3rem 2rem;
+      background: #fff;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: #f0f0f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-card h4 {
+      margin-top: 1rem;
+      font-style: normal;
+      color: #000;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 3rem 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .footer-logo p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .footer-links h4,
+    .footer-support h4 {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links ul,
+    .footer-support ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li,
+    .footer-support li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a,
+    .footer-support a {
+      text-decoration: none;
+      color: #aaa;
+      transition: 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover,
+    .footer-support a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="shop-hero">
+    <h1>Welcome to Our Shop</h1>
+    <p>Discover premium furniture crafted for modern living.</p>
+  </section>
+
+  <!-- FEATURED CATEGORIES -->
+  <section class="categories">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="https://i.pinimg.com/1200x/4c/9b/8c/4c9b8c61307f15aac2ee335f5b901b72.jpg" alt="Chairs">
+        <h3>Chairs</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://i.pinimg.com/736x/f7/c7/c7/f7c7c78441ab64c770fa3f455edfe3c4.jpg" alt="Tables">
+        <h3>Tables</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://i.pinimg.com/1200x/21/0c/3a/210c3a47653ef99051df2285e4df8b0a.jpg" alt="Sofas">
+        <h3>Sofas</h3>
+      </div>
+      <div class="category-card">
+        <img src="https://i.pinimg.com/736x/c7/55/e4/c755e4459a17e177fe755214b0730b13.jpg" alt="Lamps">
+        <h3>Lamps</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="best-sellers">
+    <h2>Best Sellers</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://i.pinimg.com/736x/cc/98/28/cc9828d22e1fd99f8e5e4a9173d24d90.jpg" alt="Chair">
+        <div class="product-info">
+          <h4>Modern chair </h4>
+          <p class="price">$120</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://i.pinimg.com/1200x/19/5f/ad/195fadd3bb1ce731b4ce8f4bbd11a938.jpg" alt="Table">
+        <div class="product-info">
+          <h4>Wooden Table</h4>
+          <p class="price">$250</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://i.pinimg.com/1200x/d5/81/95/d58195382738b9530aff24923899387b.jpg" alt="Sofa">
+        <div class="product-info">
+          <h4>Luxury Sofa</h4>
+          <p class="price">$780</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+      </div>
+     
+      <div class="product-card">
+        <img src="https://i.pinimg.com/1200x/c6/0e/d6/c60ed637c6b11d902615d93eb462c361.jpg" alt="Sofa">
+        <div class="product-info">
+          <h4> art </h4>
+          <p class="price">$780</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- OFFER BANNER -->
+  <div class="offer-banner">
+    <h2>Exclusive Offer!</h2>
+    <p>Get 30% off your first order today.</p>
+    <button>Shop Now</button>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        “Amazing quality furniture. My living room looks stunning now!”
+        <h4>- Sarah M.</h4>
+      </div>
+      <div class="testimonial-card">
+        “Fast delivery and excellent customer service. Highly recommend.”
+        <h4>- John D.</h4>
+      </div>
+      <div class="testimonial-card">
+        “The sofa is super comfy and stylish. Worth every penny!”
+        <h4>- Emma L.</h4>
+      </div>
+
+    <div class="testimonial-card">
+        “The chair is super comfy and stylish. Worth every penny!”
+        <h4>- kevin </h4>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h2>FurniCo</h2>
+        <p>Modern, minimalist furniture for every living space.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-support">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 FurniCo. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

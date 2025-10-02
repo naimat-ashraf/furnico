@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniture Store - Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* HERO */
+    .blog-hero {
+      background: url('https://i.pinimg.com/1200x/18/4e/b2/184eb2236c2c7918a7b4681a56f819d2.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .blog-hero h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .blog-hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    /* BLOG GRID */
+    .blog-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .blog-section h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      text-align: left;
+      transition: 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 1.2rem;
+    }
+
+    .blog-content h3 {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+    }
+
+    .blog-content p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .blog-meta {
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .read-more:hover {
+      background: #444;
+    }
+
+    /* FEATURED POST */
+    .featured-post {
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 3rem 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .featured-post img {
+      flex: 1;
+      min-width: 300px;
+      object-fit: cover;
+    }
+
+    .featured-content {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .featured-content h2 {
+      margin-top: 0;
+    }
+
+    .featured-content p {
+      margin: 1rem 0;
+      color: #ccc;
+    }
+
+    .featured-content a {
+      background: crimson;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .featured-content a:hover {
+      background: #ff4a4a;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: #eee;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-radius: 16px;
+      margin: 3rem 2rem;
+    }
+
+    .newsletter h2 {
+      margin-bottom: 1rem;
+    }
+
+    .newsletter input {
+      padding: 0.8rem;
+      width: 250px;
+      max-width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-right: 0.5rem;
+    }
+
+    .newsletter button {
+      padding: 0.8rem 1.2rem;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .newsletter button:hover {
+      background: #444;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 3rem 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .footer-logo p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .footer-links h4,
+    .footer-support h4 {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links ul,
+    .footer-support ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li,
+    .footer-support li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a,
+    .footer-support a {
+      text-decoration: none;
+      color: #aaa;
+      transition: 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover,
+    .footer-support a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="blog-hero">
+    <h1>Our Blog</h1>
+    <p>Design tips, interior inspiration, and furniture trends</p>
+  </section>
+
+  <!-- LATEST BLOGS -->
+  <section class="blog-section">
+    <h2>Latest Articles</h2>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="https://i.pinimg.com/736x/cf/6d/0d/cf6d0d9ccc92297739236f35ec3c7a5e.jpg" alt="Blog Post">
+        <div class="blog-content">
+          <p class="blog-meta">March 10, 2025 | Interior Design</p>
+          <h3>5 Modern Living Room Ideas</h3>
+          <p>Discover how to transform your living room into a cozy yet stylish space with these design ideas.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img src="https://i.pinimg.com/736x/18/81/56/188156daff0221ccd0b76df1eaf5eceb.jpg" alt="Blog Post">
+        <div class="blog-content">
+          <p class="blog-meta">Feb 25, 2025 | Furniture Trends</p>
+          <h3>Top Furniture Trends of 2025</h3>
+          <p>From sustainable materials to multifunctional designs, explore what’s trending this year.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- FEATURED POST -->
+  <section class="featured-post">
+    <img src="https://i.pinimg.com/1200x/ef/de/a0/efdea01de8c8ff9234df19aee8df4ded.jpg" alt="Featured Blog">
+    <div class="featured-content">
+      <h2>Luminous Living: Innovative Lighting Designs</h2>
+      <p>Explore how lighting can completely transform your living spaces. From warm tones to futuristic lamps, we cover it all.</p>
+      <a href="#">Read Full Story</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Stay updated on new arrivals, discounts, and design inspiration.</p>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h2>FurniCo</h2>
+        <p>Modern, minimalist furniture for every living space.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-support">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 FurniCo. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
